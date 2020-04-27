@@ -4,14 +4,15 @@ import Link from "../components/Link";
 
 const mapStateToProps = (
   state: any,
-  ownProps: { children: string; filter: string }
+  ownProps: { children: any; filter: string }
 ) => ({
   active: ownProps.filter === state.visibilityFilter,
+  children: ownProps.children,
 });
 
 const mapDispatchToProps = (
   dispatch: Function,
-  ownProps: { children: string; filter: string }
+  ownProps: { children: any; filter: string }
 ) => ({
   onClick: () => dispatch(setVisibilityFilter(ownProps.filter)),
 });

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Link: any = (active: boolean, children: string, onClick: () => any) => (
+const Link: any = (onClick: () => any, active: boolean, children: any) => (
   <button
     onClick={onClick}
     disabled={active}

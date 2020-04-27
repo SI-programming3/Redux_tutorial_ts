@@ -20,7 +20,7 @@ const getVisibleTodos = (
 };
 
 const mapStateToProps = (state: any) => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter),
+  items: getVisibleTodos(state.todos, state.visibilityFilter),
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
