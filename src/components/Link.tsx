@@ -1,14 +1,17 @@
 import React from "react";
 
-const Link: any = (onClick: () => any, active: boolean, children: any) => (
+const Link: any = (
+  onClick: () => any,
+  props: { active: boolean; children: React.ReactNode }
+) => (
   <button
     onClick={onClick}
-    disabled={active}
+    disabled={props.active}
     style={{
       marginLeft: "4px",
     }}
   >
-    {children}
+    {props.children}
   </button>
 );
 
