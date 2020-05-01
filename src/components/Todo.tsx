@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo: any = (props: {
+const Todo = (props: {
   onClick: () => any;
   completed: boolean;
   text: string;

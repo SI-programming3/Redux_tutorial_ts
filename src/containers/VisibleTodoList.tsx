@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { toggleTodo } from "../actions";
 import TodoList from "../components/TodoList";
 import { VisibilityFilters } from "../actions";
+import { RootState } from "../reducers";
 
 const getVisibleTodos = (
   todos: { completed: boolean; id: number; text: string }[],
@@ -19,7 +20,7 @@ const getVisibleTodos = (
   }
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: RootState) => ({
   items: getVisibleTodos(state.todos, state.visibilityFilter),
 });
 

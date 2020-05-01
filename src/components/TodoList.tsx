@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList: any = (props: {
+const TodoList = (props: {
   items: { completed: boolean; id: number; text: string }[];
   toggleTodo: (id: number) => any;
 }) => (

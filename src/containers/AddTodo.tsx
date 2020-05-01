@@ -1,8 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { addTodo } from "../actions";
 
-const AddTodo = (dispatch: { dispatch: Function }) => {
+const AddTodo = () => {
+  const dispatch = useDispatch();
   let input: any;
 
   return (
@@ -14,7 +15,7 @@ const AddTodo = (dispatch: { dispatch: Function }) => {
             return;
           }
           console.log(input.value);
-          dispatch.dispatch(addTodo(input.value));
+          dispatch(addTodo(input.value));
           input.value = "";
         }}
       >
