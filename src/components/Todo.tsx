@@ -1,13 +1,17 @@
 import React from "react";
 
-const Todo: any = (onClick: () => any, completed: boolean, text: string) => (
+const Todo: any = (props: {
+  onClick: () => any;
+  completed: boolean;
+  text: string;
+}) => (
   <li
-    onClick={onClick}
+    onClick={props.onClick}
     style={{
-      textDecoration: completed ? "line-through" : "none",
+      textDecoration: props.completed ? "line-through" : "none",
     }}
   >
-    {text}
+    {props.text}
   </li>
 );
 

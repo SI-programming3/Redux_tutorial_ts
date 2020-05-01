@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../actions";
 
-const AddTodo: any = (dispatch: Function) => {
+const AddTodo = (dispatch: { dispatch: Function }) => {
   let input: any;
 
   return (
@@ -14,7 +14,7 @@ const AddTodo: any = (dispatch: Function) => {
             return;
           }
           console.log(input.value);
-          dispatch(addTodo(input.value));
+          dispatch.dispatch(addTodo(input.value));
           input.value = "";
         }}
       >
@@ -34,4 +34,7 @@ preventDefaultはイベントをキャンセルできる時にキャンセルす
   この場合typeがsubmitのボタンが押された時にフォームを送信し送信先のURLに飛ばないようにしている
 inputのところはコールバックref。 この場合nodeの中にはDOM要素の参照が入っている。
   .valueでinputの際の値が出せる。
+
+dispatch:Functionだとダメでdispatch{dispatch:Function}なら良い理由がわからない。
+
 */
