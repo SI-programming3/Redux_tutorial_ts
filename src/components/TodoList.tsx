@@ -42,4 +42,5 @@ export default TodoList;
 VisibleTodoListから得たtodosとtoggleTodoで、Todosに対しmap関数でコピーし、全ての要素を
   Todoにスプレッド演算子を用いて渡している。
   この時、onClickはクリックされた際にtogglTodoにtodoのidを渡す処理をするようにしている。
+  正直mapstatetopropsとかを先に書いてあとで書き換える方が楽そうに思える。
 */
