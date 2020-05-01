@@ -1,16 +1,40 @@
 import React from "react";
 import Todo from "./Todo";
+import { toggleTodo } from "../actions";
+import { VisibilityFilters } from "../actions";
+import { RootState } from "../reducers";
+import { useDispatch, useSelector } from "react-redux";
 
-const TodoList = (props: {
-  items: { completed: boolean; id: number; text: string }[];
-  toggleTodo: (id: number) => any;
-}) => (
-  <ul>
-    {props.items.map((todo) => (
-      <Todo key={todo.id} {...todo} onClick={() => props.toggleTodo(todo.id)} />
-    ))}
-  </ul>
-);
+const getVisibleTodos = (state: RootState, filter: string) => {
+  switch (filter) {
+    case VisibilityFilters.SHOW_ALL:
+      return state.todos;
+    case VisibilityFilters.SHOW_COMPLETED:
+      return state.todos.filter((todos) => todos.completed);
+    case VisibilityFilters.SHOW_ACTIVE:
+      return state.todos.filter((todos) => !todos.completed);
+    default:
+      throw new Error("Unknown filter: " + filter);
+  }
+};
+
+const TodoList = () => {
+  const items = useSelector((state: RootState) =>
+    getVisibleTodos(state, state.visibilityFilter)
+  );
+  const dispatch = useDispatch();
+  return (
+    <ul>
+      {items.map((todo) => (
+        <Todo
+          key={todo.id}
+          {...todo}
+          onClick={() => dispatch(toggleTodo(todo.id))}
+        />
+      ))}
+    </ul>
+  );
+};
 
 export default TodoList;
 
